@@ -1,10 +1,10 @@
 // components/Homepage.js
 
 import React from 'react';
-import './Homepage.css';
+import './Homep.css';
 import { Link } from 'react-router-dom';
 
-const Homepage = () => {
+const Homep = () => {
   return (
     <div className="homepage-container">
       <h1 className="homepage-title">Welcome to Sentiment Analysis News Site</h1>
@@ -23,4 +23,4 @@ const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default Homep;

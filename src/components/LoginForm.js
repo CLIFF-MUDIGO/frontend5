@@ -14,14 +14,16 @@ const LoginForm = () => {
       const response = await axios.post('http://localhost:3000/auth/login', { email, password });
       if (response.status === 200) {
         // Login successful, handle the response (e.g., redirect to dashboard)
-    alert ('Login successful!');
-        navigate('/dashboard');
+        console.log(response);
+      alert (`Logged in successfully as ${response.data.username}`);
+        navigate('/articles');
       } else {
         // Handle login error (e.g., show error message)
         console.error('Login failed.');
       }
     } catch (error) {
       console.error('Login failed.', error);
+      alert ('You have entered a wrong username or password');
     }
   };
 

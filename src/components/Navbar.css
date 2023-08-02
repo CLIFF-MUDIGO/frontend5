@@ -1,0 +1,42 @@
+/* Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #dd754c; /* Dark background color */
+  padding: 1rem;
+}
+
+.logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.8rem;
+  color: #FFA500; /* Orange color for the logo text */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #4c12d3; /* White color for the links */
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+  color: #FFA500; /* Hover color */
+}
+
+/* Your existing navbar styles here */
+
+.logo {
+  font-family: 'Pacifico', cursive; /* Use the "Pacifico" font for the logo */
+  font-size: 1.5rem;
+  margin-right: 20px;
+}
+

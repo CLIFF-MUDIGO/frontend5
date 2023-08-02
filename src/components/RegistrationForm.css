@@ -54,33 +54,34 @@
     margin-top: 2.5em;
   }
   
-  .button1 {
-    padding: 0.5em;
-    padding-left: 1.1em;
-    padding-right: 1.1em;
-    border-radius: 5px;
-    margin-right: 0.5em;
-    border: none;
-    outline: none;
-    transition: .4s ease-in-out;
-    background-color: #252525;
-    color: white;
-  }
-  
-  .button1:hover {
-    background-color: black;
-    color: white;
-  }
-  
-  .signup p {
-    text-align: center;
-    color: white;
-  }
-  
-  .signup span {
-    color: #00bfff;
-    cursor: pointer;
-  }
+/* RegistrationForm.css */
+
+/* Your existing CSS styles here */
+
+.signup form button {
+  padding: 0.5em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: .4s ease-in-out;
+  background-color: #00bfff; /* Blue background color */
+  color: white;
+  cursor: pointer;
+}
+
+.signup form button:hover {
+  background-color: #007acc; /* Darker blue on hover */
+  color: rgb(250, 250, 250); /* Hover text color */
+}
+
+.signup p {
+  text-align: center;
+  color: rgb(226, 218, 218);
+}
+.signup span {
+  color: #00bfff;
+  cursor: pointer;
+}
   
   /* Additional styles for the login form */
   .login {

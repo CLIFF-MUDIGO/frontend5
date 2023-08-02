@@ -19,8 +19,11 @@ const Homep = () => {
       <div className="about-us-section">
         <h2>About Us</h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          ac imperdiet eros. Phasellus et pharetra ex. Nulla facilisi.
+        we're dedicated to simplifying news consumption. With an overwhelming amount of information available, 
+        we recognize the challenge of understanding the sentiments behind each news piece. 
+        That's why we've developed a unique news site using IBM Watson's Natural Language Understanding API for sentiment analysis.
+         By analyzing news articles' sentiments, we empower readers to make informed decisions and gain deeper insights into the emotions conveyed by the news they read.
+
         </p>
       </div>
 

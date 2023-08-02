@@ -138,6 +138,7 @@ body {
 .about-us-section {
   text-align: center;
   margin-top: 60px;
+  font-family: 'Dancing Script', cursive; /* Use the "Dancing Script" font for this section */
 }
 
 .about-us-section h2 {
@@ -148,6 +149,8 @@ body {
 
 .about-us-section p {
   font-size: 1.2rem;
+  line-height: 1.6; /* Increase line height for better readability */
+  color: #333; /* Dark Gray, paragraph text color */
 }
 
 /* Contact Us Section */

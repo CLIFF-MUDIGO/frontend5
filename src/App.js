@@ -1,19 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ArticleList from './components/ArticleList';
-import ArticleDetails from './components/ArticleDetails'; // Assuming you have an ArticleDetails component for displaying individual article details
+import ArticleDetails from './components/ArticleDetails';
 import Homep from './components/Homep';
 import RegistrationForm from './components/RegistrationForm';
 import LoginForm from './components/LoginForm';
 import "./App.css";
+import "./components/Navbar.css";
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className="navbar">
+      <div className="logo">
+        <Link to="/">My News App</Link>
+      </div>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
         <li>
           <Link to="/register">Register</Link>
         </li>
@@ -33,9 +34,8 @@ const App = () => {
     <Router>
       <div className="App">
         <header className="App-header">
-          <h1>My News App</h1>
+          <Navbar /> {/* Move Navbar inside the header */}
         </header>
-        <Navbar />
         <Routes>
           <Route path="/" element={<Homep />} />
           <Route path="/register" element={<RegistrationForm />} />

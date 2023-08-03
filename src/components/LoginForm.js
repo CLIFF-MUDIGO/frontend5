@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from './AuthContext';
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const {setToken} = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -15,10 +17,10 @@ const LoginForm = () => {
       if (response.status === 200) {
         // Login successful, handle the response (e.g., redirect to dashboard)
         console.log(response);
-      alert (`Logged in successfully as ${response.data.username}`);
+        setToken(response.data.token)
+        alert (`Logged in successfully as ${response.data.username}`);
         navigate('/articles');
       } else {
-        // Handle login error (e.g., show error message)
         console.error('Login failed.');
       }
     } catch (error) {

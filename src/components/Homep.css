@@ -1,62 +1,203 @@
 /* components/Homepage.css */
 
+/* Global styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .homepage-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f8ff; /* Alice Blue, background color */
-  }
-  
-  .homepage-title {
-    font-family: 'Pacifico', cursive;
-    font-size: 3rem;
-    color: #ff4500; /* Orange Red, title color */
-  }
-  
-  .homepage-text {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem;
-    color: #2f4f4f; /* Dark Slate Gray, text color */
-  }
-  
-  .homepage-buttons {
-    margin-top: 20px;
-  }
-  
-  .signin-button,
-  .login-button {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  }
-  
-  .signin-button {
-    background-color: #ff8c69; /* Light Salmon, Sign In button color */
-    color: #fff;
-  }
-  
-  .login-button {
-    background-color: #b0e57c; /* Pale Green, Login button color */
-    color: #ff4500; /* Orange Red, text color */
-    border: 1px solid #ff4500; /* Orange Red, border color */
-  }
-  
-  /* Hover styles */
-  .signin-button:hover {
-    background-color: #ff4500; /* Orange Red, Sign In button hover color */
-    color: #fff;
-  }
-  
-  .login-button:hover {
-    background-color: #8fbc8f; /* Dark Sea Green, Login button hover color */
-    color: #fff;
-    border-color: #fff;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f0f8ff; /* Alice Blue, background color */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  align-items: center;
+  background-color: #333; /* Dark Gray, navbar background color */
+  color: #fff; /* White, navbar text color */
+  width: 100%;
+  padding: 10px 20px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.navbar-link {
+  text-decoration: none;
+  color: #fff; /* White, link color */
+  font-size: 1.2rem;
+  margin-right: 20px;
+}
+
+.navbar-buttons {
+  display: flex;
+}
+
+/* The styles for the Sentiments link in the Navbar */
+.navbar-buttons .navbar-link:last-child {
+  margin-left: auto; /* Push the Sentiments link to the right */
+}
+
+/* Sign In and Login buttons in the Navbar */
+.signin-button,
+.login-button {
+  font-size: 1rem;
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.signin-button {
+  background-color: #ff8c69; /* Light Salmon, Sign In button color */
+  color: #fff;
+}
+
+.login-button {
+  background-color: #b0e57c; /* Pale Green, Login button color */
+  color: #ff4500; /* Orange Red, text color */
+  border: 1px solid #ff4500; /* Orange Red, border color */
+}
+
+/* Hover styles */
+.signin-button:hover {
+  background-color: #ff4500; /* Orange Red, Sign In button hover color */
+  color: #fff;
+}
+
+.login-button:hover {
+  background-color: #8fbc8f; /* Dark Sea Green, Login button hover color */
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 40px;
+  background-color: #ff8c69; /* Light Salmon, hero background color */
+  color: #fff;
+  margin-top: 40px;
+  border-radius: 10px;
+}
+
+.homepage-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.homepage-text {
+  font-size: 1.2rem;
+}
+
+.homepage-buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* The styles for the first set of Sign In and Login Buttons */
+.homepage-buttons .signin-button:first-child {
+  background-color: #ff8c69; /* Light Salmon, Sign In button color */
+}
+
+.homepage-buttons .login-button:first-child {
+  background-color: #b0e57c; /* Pale Green, Login button color */
+  color: #ff4500; /* Orange Red, text color */
+  border: 1px solid #ff4500; /* Orange Red, border color */
+  margin-left: 10px; /* Add some spacing between the buttons */
+}
+
+/* The styles for the second set of Sign In and Login Buttons */
+.homepage-buttons .signin-button:last-child {
+  background-color: #ff4500; /* Orange Red, Sign In button color */
+}
+
+.homepage-buttons .login-button:last-child {
+  background-color: #8fbc8f; /* Dark Sea Green, Login button color */
+  color: #fff;
+  border-color: #fff;
+  margin-left: 10px; /* Add some spacing between the buttons */
+}
+
+/* About Us Section */
+.about-us-section {
+  text-align: center;
+  margin-top: 60px;
+  font-family: 'Dancing Script', cursive; /* Use the "Dancing Script" font for this section */
+}
+
+.about-us-section h2 {
+  font-size: 2.5rem;
+  color: #ff4500; /* Orange Red, title color */
+  margin-bottom: 20px;
+}
+
+.about-us-section p {
+  font-size: 1.2rem;
+  line-height: 1.6; /* Increase line height for better readability */
+  color: #333; /* Dark Gray, paragraph text color */
+}
+
+/* Contact Us Section */
+.contact-us-section {
+  text-align: center;
+  margin-top: 60px;
+}
+
+.contact-us-section h2 {
+  font-size: 2.5rem;
+  color: #ff4500; /* Orange Red, title color */
+  margin-bottom: 20px;
+}
+
+.contact-us-section p {
+  font-size: 1.2rem;
+}
+
+.contact-us-section a {
+  color: #ff4500; /* Orange Red, link color */
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.contact-us-section a:hover {
+  color: #8fbc8f; /* Dark Sea Green, link hover color */
+}
+
+/* Footer */
+.footer {
+  background-color: #333; /* Dark Gray, footer background color */
+  color: #fff; /* White, footer text color */
+  padding: 20px;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+.footer p {
+  margin: 5px 0;
+}
+
+.footer a {
+  color: #fff; /* White, link color */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}

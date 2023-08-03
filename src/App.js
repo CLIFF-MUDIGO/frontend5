@@ -9,23 +9,22 @@ import LoginForm from './components/LoginForm';
 import { AuthProvider, useAuth } from './components/AuthContext'; // Import the useAuth hook and AuthProvider
 
 import "./App.css";
+import "./components/Navbar.css";
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className="navbar">
+      <div className="logo">
+        <Link to="/">My News App</Link>
+      </div>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
         <li>
           <Link to="/register">Register</Link>
         </li>
         <li>
           <Link to="/login">Login</Link>
         </li>
-        <li>
-          <Link to="/articles">Articles</Link>
-        </li>
+        
       </ul>
     </nav>
   );
@@ -51,6 +50,7 @@ const App = () => {
         <Route path="/articles/:id" element={<ArticleDetails />} />
       </Routes>
     </div>
+
   );
 };
 

@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const ArticleList = () => {
+const ArticleList = ({ searchQuery, sortBy }) => {
   const [articles, setArticles] = useState([]);
+  const [filteredArticles, setFilteredArticles] = useState([]);
 
   const fetchArticles = async () => {
     try {
@@ -18,10 +19,29 @@ const ArticleList = () => {
     fetchArticles();
   }, []);
 
+  // Filter articles based on searchQuery and sortBy whenever they change
+  useEffect(() => {
+    // Filter articles based on the search query
+    const filtered = articles.filter((article) =>
+      article.headline.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    // Sort articles based on the selected filter option
+    let sorted = [...filtered];
+    if (sortBy === 'date') {
+      sorted.sort((a, b) => new Date(b.date) - new Date(a.date));
+    } else if (sortBy === 'sentiment') {
+      // Implement sorting by sentiment if needed
+      // sorted.sort(...);
+    }
+
+    setFilteredArticles(sorted);
+  }, [searchQuery, sortBy, articles]);
+
   return (
     <div>
       <h1>News Articles</h1>
-      {articles.map((article) => (
+      {filteredArticles.map((article) => (
         <div key={article.id}>
           <img src={article.image_url} alt={article.headline} />
           <h2>

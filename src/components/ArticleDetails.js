@@ -28,6 +28,7 @@ const ArticleDetails = () => {
       <img src={article.image_url} alt={article.headline} />
       <h1>{article.headline}</h1>
       <p>{article.content}</p>
+      <p>{article.sentiment}</p>
     </div>
   );
 };

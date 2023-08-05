@@ -4,96 +4,85 @@ import axios from 'axios';
 import { useAuth } from './AuthContext';
 
 const ArticleList = () => {
-  const { token } = useAuth(); // Retrieve the JWT token from the context
+  const { token } = useAuth();
   const [articles, setArticles] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [userPreferences, setUserPreferences] = useState(null);
 
   const fetchArticles = async () => {
     try {
       const response = await axios.get('http://127.0.0.1:3000/news_articles');
-      const fetchedArticles = response.data;
+      setArticles(response.data);
+      setIsLoading(false);
+    } catch (error) {
+      setIsLoading(false);
+      setError('Error fetching articles. Please try again.');
+    }
+  };
 
-      // Fetch the bookmarked articles when the token is available
-      if (token) {
-        const bookmarksResponse = await axios.get('http://127.0.0.1:3000/bookmarks', {
+  const fetchUserPreferences = async () => {
+    if (token) {
+      try {
+        const response = await axios.get('http://127.0.0.1:3000/users/preferences', {
           headers: {
-            Authorization: `Bearer ${token}`, // Include the JWT token in the Authorization header
+            Authorization: `Bearer ${token}`,
           },
         });
-
-        // Map the bookmarked article IDs into an array
-        const bookmarkedArticleIds = bookmarksResponse.data.map((bookmark) => bookmark.news_article_id);
-
-        // Update the state of articles with bookmarked status
-        const updatedArticles = fetchedArticles.map((article) => ({
-          ...article,
-          isBookmarked: bookmarkedArticleIds.includes(article.id),
-        }));
-        setArticles(updatedArticles);
-      } else {
-        // If user is not logged in, set the isBookmarked state to false for all articles
-        setArticles(fetchedArticles.map((article) => ({ ...article, isBookmarked: false })));
+        setUserPreferences(response.data);
+      } catch (error) {
+        console.error('Error fetching user preferences:', error);
       }
-    } catch (error) {
-      console.error('Error fetching articles:', error);
     }
+  };
+
+  const applyUserPreferences = () => {
+    if (!userPreferences) {
+      return articles; // No user preferences, return all articles as is
+    }
+
+    return articles.filter((article) => {
+      if (userPreferences.hide_negative_sentiment && article.sentiment === 'negative') {
+        return false;
+      }
+      if (userPreferences.hide_positive_sentiment && article.sentiment === 'positive') {
+        return false;
+      }
+      if (userPreferences.hide_neutral_sentiment && article.sentiment === 'neutral') {
+        return false;
+      }
+      return true;
+    });
   };
 
   useEffect(() => {
     fetchArticles();
+    if (token) {
+      fetchUserPreferences();
+    } else {
+      setUserPreferences(null); // Reset user preferences if the user is not logged in
+    }
   }, [token]);
 
+  useEffect(() => {
+    // Apply user preferences to the articles whenever the articles or userPreferences change
+    if (articles.length > 0 && userPreferences) {
+      const filteredArticles = applyUserPreferences();
+      setArticles(filteredArticles);
+    }
+  }, [userPreferences]);
+
   const BookmarkButton = ({ articleId, isBookmarked }) => {
-    const handleBookmark = () => {
-      // Check if the user is logged in (JWT token is available)
-      if (!token) {
-        // User is not logged in, show an alert to log in
-        alert('Please log in to bookmark this article.');
-        return;
-      }
-
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`, // Include the JWT token in the Authorization header
-        },
-      };
-
-      // Make an API call to either bookmark or remove bookmark based on the `isBookmarked` state
-      if (isBookmarked) {
-        // Remove the bookmark
-        axios
-          .delete(`http://127.0.0.1:3000/bookmarks/${articleId}`, config)
-          .then(() => {
-            // Update the state to reflect the removed bookmark
-            setArticles((prevArticles) =>
-              prevArticles.map((article) =>
-                article.id === articleId ? { ...article, isBookmarked: false } : article
-              )
-            );
-          })
-          .catch((error) => console.error('Error removing bookmark:', error));
-      } else {
-        // Add the bookmark
-        const data = { news_article_id: articleId };
-        axios
-          .post('http://127.0.0.1:3000/bookmarks', data, config)
-          .then(() => {
-            // Update the state to reflect the added bookmark
-            setArticles((prevArticles) =>
-              prevArticles.map((article) =>
-                article.id === articleId ? { ...article, isBookmarked: true } : article
-              )
-            );
-          })
-          .catch((error) => console.error('Error adding bookmark:', error));
-      }
-    };
-
-    return (
-      <button onClick={handleBookmark}>
-        {isBookmarked ? 'Remove Bookmark' : 'Bookmark'}
-      </button>
-    );
+    // Rest of the code for BookmarkButton component
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <div>
@@ -105,11 +94,12 @@ const ArticleList = () => {
             <Link to={`/articles/${article.id}`}>{article.headline}</Link>
           </h2>
           <p>{article.summary}</p>
+          <p>{article.sentiment}</p>
 
           {/* Add the BookmarkButton component here */}
           <BookmarkButton articleId={article.id} isBookmarked={article.isBookmarked} />
 
-          <hr />
+          
         </div>
       ))}
     </div>

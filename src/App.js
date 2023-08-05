@@ -7,9 +7,9 @@ import Homep from './components/Homep';
 import RegistrationForm from './components/RegistrationForm';
 import LoginForm from './components/LoginForm';
 import { AuthProvider, useAuth } from './components/AuthContext'; // Import the useAuth hook and AuthProvider
-
 import "./App.css";
-import "./components/Navbar.css";
+import UserPreferences from './components/UserPreferences';
+
 
 const Navbar = () => {
   return (
@@ -24,7 +24,12 @@ const Navbar = () => {
         <li>
           <Link to="/login">Login</Link>
         </li>
-        
+        <li>
+          <Link to="/articles">Articles</Link>
+        </li>
+        <li>
+          <Link to="/preferences">Preferences</Link>
+        </li>
       </ul>
     </nav>
   );
@@ -47,6 +52,7 @@ const App = () => {
           path="/articles"
           element={<ArticleList token={token} />} // Pass the token as a prop to the ArticleList component
         />
+        <Route path="/preferences" element={<UserPreferences authToken={token} />}/>
         <Route path="/articles/:id" element={<ArticleDetails />} />
       </Routes>
     </div>

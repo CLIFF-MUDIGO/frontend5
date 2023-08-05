@@ -40,7 +40,7 @@ const ArticleDetails = () => {
     fetchArticleDetails();
   }, [id]);
 
-  if (!article) {
+  if (!article || !article.id) {
     return <div>Loading...</div>;
   }
 
@@ -49,11 +49,8 @@ const ArticleDetails = () => {
       <img src={article.image_url} alt={article.headline} />
       <h1>{article.headline}</h1>
       <p>{article.content}</p>
-      {isBookmarked ? (
-        <button onClick={handleBookmarkToggle}>Remove Bookmark</button>
-      ) : (
-        <button onClick={handleBookmarkToggle}>Bookmark</button>
-      )}
+      <p>{article.sentiment}</p>
+
     </div>
   );
 };

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './RegistrationForm.css';
 
 function RegistrationForm() {
+  const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,6 +16,19 @@ function RegistrationForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Frontend validation for password length and matching
+    if (password.length < 8) {
+      setValidationErrors({ password: ['Password must be at least 8 characters long'] });
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (password !== password_confirmation) {
+      setValidationErrors({ password_confirmation: ['Password confirmation must match the password'] });
+      setIsSubmitting(false);
+      return;
+    }
+
     fetch('http://localhost:3000/users', {
       method: 'POST',
       headers: {
@@ -22,6 +36,7 @@ function RegistrationForm() {
       },
       body: JSON.stringify({
         user: {
+          name,
           username,
           email,
           password,
@@ -42,8 +57,11 @@ function RegistrationForm() {
         console.error(error);
       });
   };
-
   const handleName = (e) => {
+    setName(e.target.value);
+  };
+  
+  const handleUserName = (e) => {
     setUsername(e.target.value);
   };
   const handleEmail = (e) => {
@@ -60,9 +78,14 @@ function RegistrationForm() {
     <div className="box">
       <div className="signup">
         <form onSubmit={handleSubmit} className="sign">
-          <h1>Sign up for free</h1>
+          <h1>Sign up </h1>
+          <label>Name:</label>
+          <input type="text" value={name} onChange={handleName}/>
+          {validationErrors.name && (
+          <p className="error-message">{validationErrors.name[0]}</p>
+          )}
           <label>Username:</label>
-          <input type="text" value={username} onChange={handleName} />
+          <input type="text" value={username} onChange={handleUserName} />
           {validationErrors.username && (
             <p className="error-message">{validationErrors.username[0]}</p>
           )}

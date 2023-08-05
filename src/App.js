@@ -10,13 +10,14 @@ import { AuthProvider, useAuth } from './components/AuthContext'; // Import the 
 import "./App.css";
 import UserPreferences from './components/UserPreferences';
 
+
 const Navbar = () => {
   return (
-    <nav>
+    <nav className="navbar">
+      <div className="logo">
+        <Link to="/">My News App</Link>
+      </div>
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
         <li>
           <Link to="/register">Register</Link>
         </li>
@@ -55,6 +56,7 @@ const App = () => {
         <Route path="/articles/:id" element={<ArticleDetails />} />
       </Routes>
     </div>
+
   );
 };
 

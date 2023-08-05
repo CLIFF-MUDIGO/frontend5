@@ -19,7 +19,7 @@ const ArticleDetails = () => {
     fetchArticleDetails();
   }, [id]);
 
-  if (!article) {
+  if (!article || !article.id) {
     return <div>Loading...</div>;
   }
 

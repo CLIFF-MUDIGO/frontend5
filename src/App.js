@@ -44,7 +44,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>My News App</h1>
+        <h1>Sentiment.AI</h1> 
       </header>
       <Navbar />
       <Routes>

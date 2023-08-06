@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
+import "./Bookmark.css";
 
 const ArticleDetails = () => {
   const { id } = useParams();
@@ -103,7 +104,7 @@ const ArticleDetails = () => {
       <p>{article.sentiment}</p>
 
       {/* Bookmark button */}
-      <button onClick={handleBookmark}>
+      <button className="button" onClick={handleBookmark}>
         {isBookmarked ? 'Remove Bookmark' : 'Bookmark'}
       </button>
     </div>

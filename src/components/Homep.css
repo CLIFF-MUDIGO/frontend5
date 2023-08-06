@@ -1,62 +1,94 @@
-/* components/Homepage.css */
+.con {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  transform-origin: 50px 50px;
+  -webkit-animation: spin 3s infinite;
+  animation: spin 3s infinite;
+}
 
-.homepage-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #f0f8ff; /* Alice Blue, background color */
+.side {
+  width: 110px;
+  height: 30px;
+  background: white;
+  position: absolute;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.side:before, .side:after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+
+.side:before {
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 20px solid #fff;
+  border-top: 35px solid #111;
+  left: 0;
+}
+
+.side:after {
+  width: 0;
+  height: 0;
+  border-left: 0px solid transparent;
+  border-right: 20px solid #111;
+  border-bottom: 35px solid transparent;
+  right: 0;
+}
+
+.left {
+  left: 0px;
+  transform: rotate(120deg);
+  z-index: 2;
+}
+
+.right, .rightAbove {
+  transform: rotate(-120deg);
+  right: -30px;
+  top: 50px;
+}
+
+.rightAbove {
+  clip: rect(0px 90px 30px 0);
+  z-index: 4;
+}
+
+.under {
+  z-index: 1;
+}
+
+.bottom {
+  left: -24px;
+  bottom: 30px;
+  z-index: 3;
+}
+
+@-webkit-keyframes spin {
+  50% {
+    transform: rotate(720deg);
   }
-  
-  .homepage-title {
-    font-family: 'Pacifico', cursive;
-    font-size: 3rem;
-    color: #ff4500; /* Orange Red, title color */
+
+  100% {
+    transform: rotate(720deg);
   }
-  
-  .homepage-text {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem;
-    color: #2f4f4f; /* Dark Slate Gray, text color */
+}
+
+@keyframes spin {
+  50% {
+    transform: rotate(720deg);
   }
-  
-  .homepage-buttons {
-    margin-top: 20px;
+
+  100% {
+    transform: rotate(720deg);
   }
-  
-  .signin-button,
-  .login-button {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1rem;
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  }
-  
-  .signin-button {
-    background-color: #ff8c69; /* Light Salmon, Sign In button color */
-    color: #fff;
-  }
-  
-  .login-button {
-    background-color: #b0e57c; /* Pale Green, Login button color */
-    color: #ff4500; /* Orange Red, text color */
-    border: 1px solid #ff4500; /* Orange Red, border color */
-  }
-  
-  /* Hover styles */
-  .signin-button:hover {
-    background-color: #ff4500; /* Orange Red, Sign In button hover color */
-    color: #fff;
-  }
-  
-  .login-button:hover {
-    background-color: #8fbc8f; /* Dark Sea Green, Login button hover color */
-    color: #fff;
-    border-color: #fff;
-  }
-  
+}

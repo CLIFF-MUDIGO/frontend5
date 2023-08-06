@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
+import "./LoginForm.css"; // Assuming the CSS code is in a file named LoginForm.css
 
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const {setToken} = useAuth();
+  const { setToken } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -30,26 +31,26 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleLogin}>
-      <div>
-        <label>Email:</label>
+    <form onSubmit={handleLogin} className="login-box">
+      <div className="user-box">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
+        <label>Email:</label>
       </div>
-      <div>
-        <label>Password:</label>
+      <div className="user-box">
         <input
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
+        <label>Password:</label>
       </div>
-      <button type="submit">Login</button>
+      <center><button type="submit">Login</button></center>
     </form>
   );
 };

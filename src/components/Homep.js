@@ -7,18 +7,14 @@ import { Link } from 'react-router-dom';
 const Homep = () => {
   return (
     <div className="homepage-container">
-      <h1 className="homepage-title">Welcome to Sentiment Analysis News Site</h1>
-      <p className="homepage-text">
-        Thank you for visiting Enjoy your stay!
-      </p>
-      <div className="homepage-buttons">
-        <Link to="/register">
-          <button className="signin-button">Sign In</button>
-        </Link>
-        <Link to="/login">
-          <button className="login-button">Login</button>
-        </Link>
-      </div>
+      <h1 className="homepage-title">NewsSentiment.AI</h1>
+    <div class="con">
+       <div class="side left"></div>
+        <div class="side right"></div>
+        <div class="side rightAbove"></div>
+        <div class="side bottom"></div>
+    </div>
+      
     </div>
   );
 };

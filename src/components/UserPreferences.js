@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import "./UserPreferences.css";
 function UserPreferences({ authToken }) {
   const [userPreferences, setUserPreferences] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -79,7 +79,7 @@ function UserPreferences({ authToken }) {
     return (
       <div>
         <h2>Add Your Personal Preferences</h2>
-        <label>
+        <label className="container">
           Hide Negative Sentiment:
           <input
             type="checkbox"
@@ -88,8 +88,9 @@ function UserPreferences({ authToken }) {
             onChange={handlePreferenceChange}
             disabled={!authToken} // Disable checkbox if not logged in
           />
+          <div className="checkmark"></div>
         </label>
-        <label>
+        <label className="container">
           Hide Positive Sentiment:
           <input
             type="checkbox"
@@ -98,8 +99,9 @@ function UserPreferences({ authToken }) {
             onChange={handlePreferenceChange}
             disabled={!authToken} // Disable checkbox if not logged in
           />
+          <div className="checkmark"></div>
         </label>
-        <label>
+        <label className="container">
           Hide Neutral Sentiment:
           <input
             type="checkbox"
@@ -108,6 +110,7 @@ function UserPreferences({ authToken }) {
             onChange={handlePreferenceChange}
             disabled={!authToken} // Disable checkbox if not logged in
           />
+          <div className="checkmark"></div>
         </label>
       </div>
     );
@@ -116,9 +119,9 @@ function UserPreferences({ authToken }) {
   // If user has preferences, show their preferences and allow updates
   return (
     <div>
-      <h2>User Preferences</h2>
+      <h2>Add Your Personal Preferences</h2>
       {error && <div>{error}</div>}
-      <label>
+      <label className="container">
         Hide Negative Sentiment:
         <input
           type="checkbox"
@@ -127,8 +130,9 @@ function UserPreferences({ authToken }) {
           onChange={handlePreferenceChange}
           disabled={!authToken} // Disable checkbox if not logged in
         />
+        <div className="checkmark"></div>
       </label>
-      <label>
+      <label className="container">
         Hide Positive Sentiment:
         <input
           type="checkbox"
@@ -137,8 +141,9 @@ function UserPreferences({ authToken }) {
           onChange={handlePreferenceChange}
           disabled={!authToken} // Disable checkbox if not logged in
         />
+        <div className="checkmark"></div>
       </label>
-      <label>
+      <label className="container">
         Hide Neutral Sentiment:
         <input
           type="checkbox"
@@ -147,6 +152,7 @@ function UserPreferences({ authToken }) {
           onChange={handlePreferenceChange}
           disabled={!authToken} // Disable checkbox if not logged in
         />
+        <div className="checkmark"></div>
       </label>
       {/* Add other preference checkboxes here */}
     </div>

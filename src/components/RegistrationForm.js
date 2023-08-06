@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './RegistrationForm.css';
+
+import "./RegistrationForm.css";
+
 
 function RegistrationForm() {
   const [name, setName] = useState('');
@@ -57,6 +59,7 @@ function RegistrationForm() {
         console.error(error);
       });
   };
+
   const handleName = (e) => {
     setName(e.target.value);
   };
@@ -64,42 +67,45 @@ function RegistrationForm() {
   const handleUserName = (e) => {
     setUsername(e.target.value);
   };
+
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
+
   const handlePassword = (e) => {
     setPassword(e.target.value);
   };
+
   const handleP = (e) => {
     setPasswordConfirmation(e.target.value);
   };
 
   return (
-    <div className="box">
-      <div className="signup">
+    <div className="registration-box">
+      <div className="user-box">
         <form onSubmit={handleSubmit} className="sign">
           <h1>Sign up </h1>
-          <label>Name:</label>
+          <label className='label'>Name:</label>
           <input type="text" value={name} onChange={handleName}/>
           {validationErrors.name && (
-          <p className="error-message">{validationErrors.name[0]}</p>
+            <p className="error-message">{validationErrors.name[0]}</p>
           )}
-          <label>Username:</label>
+          <label className='label'>Username:</label>
           <input type="text" value={username} onChange={handleUserName} />
           {validationErrors.username && (
             <p className="error-message">{validationErrors.username[0]}</p>
           )}
-          <label>Email:</label>
+          <label className='label'>Email:</label>
           <input type="email" value={email} onChange={handleEmail} />
           {validationErrors.email && (
             <p className="error-message">{validationErrors.email[0]}</p>
           )}
-          <label>Password:</label>
+          <label className='label'>Password:</label>
           <input type="password" value={password} onChange={handlePassword} />
           {validationErrors.password && (
             <p className="error-message">{validationErrors.password[0]}</p>
           )}
-          <label>Password Confirmation:</label>
+          <label className='label'>Password Confirmation:</label>
           <input
             type="password"
             value={password_confirmation}
@@ -110,12 +116,11 @@ function RegistrationForm() {
               {validationErrors.password_confirmation[0]}
             </p>
           )}
+          <center>
           <button type="submit" disabled={isSubmitting}>
             {isSubmitting ? 'Submitting...' : 'Submit'}
           </button>
-          <p>
-            please read our <span>terms and services</span>
-          </p>
+          </center>
         </form>
       </div>
     </div>

@@ -9,6 +9,7 @@ import LoginForm from './components/LoginForm';
 import { AuthProvider, useAuth } from './components/AuthContext'; // Import the useAuth hook and AuthProvider
 import "./App.css";
 import UserPreferences from './components/UserPreferences';
+import BookmarkedArticles from './components/BookmarkedArticles';
 
 
 const Navbar = () => {
@@ -29,6 +30,9 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/preferences">Preferences</Link>
+        </li>
+        <li>
+          <Link to="/bookmarked">My Articles</Link>
         </li>
       </ul>
     </nav>
@@ -54,6 +58,7 @@ const App = () => {
         />
         <Route path="/preferences" element={<UserPreferences authToken={token} />}/>
         <Route path="/articles/:id" element={<ArticleDetails />} />
+        <Route exact path="/bookmarked" element={<BookmarkedArticles/>} />
       </Routes>
     </div>
 

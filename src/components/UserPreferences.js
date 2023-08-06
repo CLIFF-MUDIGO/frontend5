@@ -71,12 +71,14 @@ function UserPreferences({ authToken }) {
   if (isLoading) {
     return <div>Loading...</div>;
   }
-
+  if(!authToken){
+    alert("Kindly Log In to set your desired preference");
+  }
   if (!userPreferences) {
     // If user has no preferences, show the checkboxes to create preferences
     return (
       <div>
-        <h2>Create User Preferences</h2>
+        <h2>Add Your Personal Preferences</h2>
         <label>
           Hide Negative Sentiment:
           <input

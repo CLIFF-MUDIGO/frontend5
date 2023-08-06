@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
+import "./ArticleList.css";
 
 const ArticleList = () => {
   const { token } = useAuth();
@@ -9,6 +10,7 @@ const ArticleList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const [userPreferences, setUserPreferences] = useState(null);
+  const [filteredArticles, setFilteredArticles] = useState([]); // New state to hold filtered articles
 
   const fetchArticles = async () => {
     try {
@@ -68,13 +70,14 @@ const ArticleList = () => {
     // Apply user preferences to the articles whenever the articles or userPreferences change
     if (articles.length > 0 && userPreferences) {
       const filteredArticles = applyUserPreferences();
-      setArticles(filteredArticles);
+      setFilteredArticles(filteredArticles); // Use a separate state to hold the filtered articles
+    } else {
+      // If no user preferences, show all articles
+      setFilteredArticles(articles);
     }
-  }, [userPreferences]);
+  }, [articles, userPreferences]);
 
-  const BookmarkButton = ({ articleId, isBookmarked }) => {
-    // Rest of the code for BookmarkButton component
-  };
+  
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -87,7 +90,7 @@ const ArticleList = () => {
   return (
     <div>
       <h1>News Articles</h1>
-      {articles.map((article) => (
+      {filteredArticles.map((article) => (
         <div key={article.id}>
           <img src={article.image_url} alt={article.headline} />
           <h2>
@@ -97,7 +100,6 @@ const ArticleList = () => {
           <p>{article.sentiment}</p>
 
           {/* Add the BookmarkButton component here */}
-          <BookmarkButton articleId={article.id} isBookmarked={article.isBookmarked} />
 
           
         </div>

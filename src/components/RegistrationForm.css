@@ -1,0 +1,144 @@
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+  }
+  
+  .signup {
+    background-color: #171717;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 2em;
+  }
+  
+  .signup form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .signup h1 {
+    text-align: center;
+    margin: 2em;
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+  }
+  
+  .signup label {
+    color: white;
+  }
+  
+  .signup input {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
+    padding: 0.6em;
+    border-radius: 25px;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  }
+  
+  .signup .error-message {
+    color: red;
+    font-size: 0.8em;
+  }
+  
+  .signup .btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 2.5em;
+  }
+  
+/* RegistrationForm.css */
+
+/* Your existing CSS styles here */
+
+.signup form button {
+  padding: 0.5em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  transition: .4s ease-in-out;
+  background-color: #00bfff; /* Blue background color */
+  color: white;
+  cursor: pointer;
+}
+
+.signup form button:hover {
+  background-color: #007acc; /* Darker blue on hover */
+  color: rgb(250, 250, 250); /* Hover text color */
+}
+
+.signup p {
+  text-align: center;
+  color: rgb(226, 218, 218);
+}
+.signup span {
+  color: #00bfff;
+  cursor: pointer;
+}
+  
+  /* Additional styles for the login form */
+  .login {
+    background-color: #171717;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 2em;
+  }
+  
+  .login form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .login h1 {
+    text-align: center;
+    margin: 2em;
+    color: rgb(255, 255, 255);
+    font-size: 1.2em;
+  }
+  
+  .login label {
+    color: white;
+  }
+  
+  .login input {
+    background: none;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: #d3d3d3;
+    padding: 0.6em;
+    border-radius: 25px;
+    background-color: #171717;
+    box-shadow: inset 2px 5px 10px rgb(5, 5, 5);
+  }
+  
+  .login .error-message {
+    color: red;
+    font-size: 0.8em;
+  }
+  
+  .login .btn {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 2.5em;
+  }
+  
+  .login p {
+    text-align: center;
+    color: white;
+  }
+  
+  .login span {
+    color: #00bfff;
+    cursor: pointer;
+  }
+  

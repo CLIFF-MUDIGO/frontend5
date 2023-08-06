@@ -15,6 +15,10 @@ const ArticleDetails = () => {
     try {
       const response = await axios.get(`http://127.0.0.1:3000/news_articles/${id}`);
       setArticle(response.data);
+
+      // Check if the article is bookmarked by the user
+      const bookmarkResponse = await axios.get(`http://127.0.0.1:3000/news_articles/${id}/bookmarked`);
+      setIsBookmarked(bookmarkResponse.data.isBookmarked);
     } catch (error) {
       console.error('Error fetching article details:', error);
     }
@@ -47,20 +51,16 @@ const ArticleDetails = () => {
       setIsLoading(false);
     }
   };
-    
-
   const handleBookmark = () => {
     if (!token) {
       alert('Please log in to bookmark this article.');
       return;
     }
-
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     };
-
     if (isBookmarked) {
       // Check if the article is bookmarked before trying to remove it
       axios
@@ -79,6 +79,7 @@ const ArticleDetails = () => {
           }
         })
         .catch((error) => console.error('Error adding bookmark:', error));
+
     }
   };
 

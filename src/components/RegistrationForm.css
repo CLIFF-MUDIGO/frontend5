@@ -1,5 +1,5 @@
 .registration-box {
-    position: fixed;
+    position: relative;
     top: 60%;
     left: 50%;
     width: 500px;

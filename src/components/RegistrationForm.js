@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./RegistrationForm.css";
+import "./RegistrationForm.css";
+
 function RegistrationForm() {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');

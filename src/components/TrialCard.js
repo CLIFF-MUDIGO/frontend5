@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-
+import "./TrialCard.css";
 function TrialCard() {
   const [url, setUrl] = useState('');
   const [result, setResult] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setLoading(true); // Set loading to true while waiting for the response
 
     // Send the URL to the backend
     fetch('http://localhost:3000/sentiment_analysis', {
@@ -21,6 +24,9 @@ function TrialCard() {
       })
       .catch((error) => {
         console.error('Error analyzing sentiment:', error);
+      })
+      .finally(() => {
+        setLoading(false); // Set loading back to false after response or error
       });
   };
 
@@ -38,18 +44,29 @@ function TrialCard() {
         />
         <button type="submit">Analyze Sentiment</button>
       </form>
+      {loading &&  <div className="hourglassBackground">
+      <div className="hourglassContainer">
+        <div className="hourglassCurves"></div>
+        <div className="hourglassCapTop"></div>
+        <div className="hourglassGlassTop"></div>
+        <div className="hourglassSand"></div>
+        <div className="hourglassSandStream"></div>
+        <div className="hourglassCapBottom"></div>
+        <div className="hourglassGlass"></div>
+      </div>
+    </div>} {/* Display loading text */}
       {result && (
         <div>
           <h3>Analysis Result:</h3>
           <p>Sentiment: {result.sentiment}</p>
           <p>Sentiment Score: {result.sentiment_score.compound}</p>
-          <p>
+          <ul>
             {Object.entries(result.sentiment_score).map((sentiment, index) => (
               <li key={index}>
                 {sentiment[0]}: {sentiment[1]}
               </li>
             ))}
-          </p>
+          </ul>
         </div>
       )}
     </div>

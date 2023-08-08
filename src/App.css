@@ -1,7 +1,9 @@
 /* Assuming you have a CSS file for your Navbar component, e.g., Navbar.css */
-
+  .App-header{
+    display: flex;
+  }
 nav {
-    background-color: #333; /* Background color for the navbar */
+    background-color: #fda9a9; /* Background color for the navbar */
     padding: 10px;
   }
   
@@ -20,11 +22,12 @@ nav {
   li a {
     text-decoration: none;
     color: white; /* Color of the links */
-    padding: 8px 16px;
+    padding: 8px 50px;
+    font-size: 30px;
   }
   
   li a:hover {
-    background-color: #555; /* Background color on hover */
+    background-color: #a67070; /* Background color on hover */
     border-radius: 5px;
   }
   

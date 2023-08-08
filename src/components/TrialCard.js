@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import SentimentChart from './SentimentChart';
+
 import "./TrialCard.css";
 function TrialCard() {
   const [url, setUrl] = useState('');
@@ -8,9 +10,8 @@ function TrialCard() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    setLoading(true); // Set loading to true while waiting for the response
+    setLoading(true); 
 
-    // Send the URL to the backend
     fetch('http://localhost:3000/sentiment_analysis', {
       method: 'POST',
       headers: {
@@ -21,6 +22,7 @@ function TrialCard() {
       .then((response) => response.json())
       .then((data) => {
         setResult(data);
+        console.log(data)
       })
       .catch((error) => {
         console.error('Error analyzing sentiment:', error);
@@ -32,6 +34,7 @@ function TrialCard() {
 
   return (
     <div className="trial-card">
+      <div><SentimentChart/></div>
       <h2>Trial Card</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="url">Enter News Article URL:</label>
@@ -42,7 +45,7 @@ function TrialCard() {
           onChange={(e) => setUrl(e.target.value)}
           required
         />
-        <button type="submit">Analyze Sentiment</button>
+       <button type="submit" className='Button'>Analyze</button>  
       </form>
       {loading &&  <div className="hourglassBackground">
       <div className="hourglassContainer">

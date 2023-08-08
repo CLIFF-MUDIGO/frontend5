@@ -38,7 +38,7 @@ const Homep = () => {
       <section className="trial-card-section">
         <TrialCard />
       </section>
-
+      
       {/* Footer */}
       <footer className="footer">
         <p>&copy; 2023 Sentiment Analysis App. All rights reserved.</p>

@@ -101,6 +101,8 @@ const ArticleDetails = () => {
       <h1>{article.headline}</h1>
       <p>{article.content}</p>
       <p>{article.sentiment}</p>
+      
+  
       <button className="button" onClick={handleBookmark}>
         {isBookmarked ? 'Remove Bookmark' : 'Bookmark'}
       </button>

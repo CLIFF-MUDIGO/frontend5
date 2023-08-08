@@ -11,16 +11,15 @@ import "./App.css";
 import UserPreferences from './components/UserPreferences';
 import BookmarkedArticles from './components/BookmarkedArticles';
 
+
 const Navbar = () => {
   return (
     <nav>
       <header className="App-header">
         <h1>Sentiment.AI</h1> 
       </header>
+
       <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
         <li>
           <Link to="/register">Register</Link>
         </li>
@@ -61,6 +60,7 @@ const App = () => {
         <Route exact path="/bookmarked" element={<BookmarkedArticles/>} />
       </Routes>
     </div>
+
   );
 };
 

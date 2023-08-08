@@ -14,6 +14,9 @@ import BookmarkedArticles from './components/BookmarkedArticles';
 const Navbar = () => {
   return (
     <nav>
+      <header className="App-header">
+        <h1>Sentiment.AI</h1> 
+      </header>
       <ul>
         <li>
           <Link to="/">Home</Link>
@@ -43,9 +46,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Sentiment.AI</h1> 
-      </header>
+      
       <Navbar />
       <Routes>
         <Route path="/" element={<Homep />} />

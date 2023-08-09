@@ -1,70 +1,89 @@
-.hero-section  {
-  font-size: 30px;
-}
-.footer{
-  font-size: 30px;
-}
-.about-us-section  {
-  font-size: 30px;
-  border-radius:3px;
+/* Homep.css */
 
-}
-
+/* Spinner */
 .spinner {
-  width: 70.4px;
-  height: 70.4px;
-  --clr: rgb(247, 197, 159);
-  --clr-alpha: rgb(247, 197, 159,.1);
-  animation: spinner 1.6s infinite ease;
-  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
 }
 
-.spinner > div {
-  background-color: var(--clr-alpha);
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  border: 3.5px solid var(--clr);
+.spinner div {
+  width: 20px;
+  height: 20px;
+  background-color: #61dafb;
+  margin: 3px;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
 }
 
-.spinner div:nth-of-type(1) {
-  transform: translateZ(-35.2px) rotateY(180deg);
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.spinner div:nth-of-type(2) {
-  transform: rotateY(-270deg) translateX(50%);
-  transform-origin: top right;
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 80px 0;
 }
 
-.spinner div:nth-of-type(3) {
-  transform: rotateY(270deg) translateX(-50%);
-  transform-origin: center left;
+.hero-section h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-.spinner div:nth-of-type(4) {
-  transform: rotateX(90deg) translateY(-50%);
-  transform-origin: top center;
+.hero-section p {
+  font-size: 18px;
+  color: #666;
 }
 
-.spinner div:nth-of-type(5) {
-  transform: rotateX(-90deg) translateY(50%);
-  transform-origin: bottom center;
+/* About Us Section */
+.about-us-section {
+  padding: 60px 0;
+  background-color: #f9f9f9;
 }
 
-.spinner div:nth-of-type(6) {
-  transform: translateZ(35.2px);
+.about-us-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-@keyframes spinner {
-  0% {
-    transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
-  }
+.about-us-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
 
-  50% {
-    transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
-  }
+.about-us-content p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
 
-  100% {
-    transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
-  }
+/* Trial Card Section */
+.trial-card-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 0;
+}
+.sentiment-chart {
+  flex: 1;
+  max-width: 50%;
+  padding: 0 30px;
+}
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333;
+  color: white;
+}
+
+.footer p {
+  font-size: 16px;
+  margin: 0;
 }

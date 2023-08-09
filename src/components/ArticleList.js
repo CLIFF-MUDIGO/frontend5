@@ -6,6 +6,9 @@ import BookmarkedArticles from './BookmarkedArticles'; // Import the BookmarkedA
 import SearchComponent from './SearchComponent'; // Import the SearchComponent component
 import "./ArticleList.css";
 
+import './ArticleList.css';
+
+
 const ArticleList = () => {
   const { token } = useAuth();
   const [articles, setArticles] = useState([]);
@@ -42,7 +45,7 @@ const ArticleList = () => {
 
   const applyUserPreferences = () => {
     if (!userPreferences) {
-      return articles; // No user preferences, return all articles as is
+      return articles;
     }
 
     return articles.filter((article) => {
@@ -78,15 +81,15 @@ const ArticleList = () => {
   }, [articles, userPreferences]);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="center">Loading...</div>;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className="center">{error}</div>;
   }
 
   return (
-    <div>
+    <div className="center">
       <h1>News Articles</h1>
       <SearchComponent onSearch={(searchQuery) => console.log(searchQuery)} onFilter={(filterOption) => console.log(filterOption)} />
       {filteredArticles.map((article) => (
@@ -101,6 +104,20 @@ const ArticleList = () => {
       ))}
       {/* Replace the BookmarkButton component with the BookmarkedArticles component */}
       <BookmarkedArticles />
+      <div className="article-container-horizontal">
+        {filteredArticles.map((article) => (
+          <div key={article.id} className="article-horizontal">
+            <img src={article.image_url} alt={article.headline} />
+            <div className="article-content-horizontal">
+              <h2>
+                <Link to={`/articles/${article.id}`}>{article.headline}</Link>
+              </h2>
+              <p>{article.summary}</p>
+              <p>{article.sentiment}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

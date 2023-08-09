@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
-import SentimentAnalyzer from './SentimentAnalizer';
+import SentimentAnalyzer from './SentimentAnalyzer'; // Make sure the import path is correct
 import './Bookmark.css';
 
 const ArticleDetails = () => {
@@ -101,8 +101,7 @@ const ArticleDetails = () => {
       <h1>{article.headline}</h1>
       <p>{article.content}</p>
       <p>{article.sentiment}</p>
-      
-  
+
       <button className="button" onClick={handleBookmark}>
         {isBookmarked ? 'Remove Bookmark' : 'Bookmark'}
       </button>

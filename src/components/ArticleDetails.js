@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useAuth } from './AuthContext';
 import SentimentAnalyzer from './SentimentAnalyzer'; // Make sure the import path is correct
 import './Bookmark.css';
+import './ArticleDetail.css'
 
 const ArticleDetails = () => {
   const { id } = useParams();

@@ -7,6 +7,7 @@ nav {
   align-items: center;
 }
 
+
 .App-header {
   margin-bottom: 1rem;
   font-size: 2rem;
@@ -26,6 +27,7 @@ nav {
   text-decoration: none;
 }
 
+
 ul {
   list-style-type: none;
   padding: 0;
@@ -36,7 +38,26 @@ ul {
 li {
   margin: 0 1rem;
 }
+.logo-link {
+  text-decoration: none;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  align-items: center;
+}
 
+.logo-link h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #f1c40f; /* Yellow */
+  transform: skewX(-15deg); /* Apply slanting effect */
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.logo-link h1:hover {
+  color: black; /* Light blue */
+  transform: skewX(-20deg); /* Increase slant on hover */
+  text-decoration: none;
+}
 li a {
   text-decoration: none;
   color: #f1c40f; /* Yellow */

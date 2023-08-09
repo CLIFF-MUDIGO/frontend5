@@ -1,4 +1,3 @@
-// App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import ArticleList from './components/ArticleList';
@@ -18,7 +17,9 @@ const Navbar = () => {
   return (
     <nav>
       <header className="App-header">
-        <h1>Sentiment.AI</h1> 
+        <Link to="/" className="logo-link">
+          <h1>Sentiment.AI</h1>
+        </Link>
       </header>
 
       <ul>
@@ -62,7 +63,6 @@ const App = () => {
         <Route exact path="/bookmarked" element={<BookmarkedArticles/>} />
       </Routes>
     </div>
-
   );
 };
 

@@ -1,0 +1,63 @@
+.sentiment-analyzer-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .button {
+    background-color: #4287f5;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .reset-button {
+    background-color: #f44336;
+  }
+  
+  .result-container {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+  
+  .chart-container {
+    margin-top: 20px;
+  }
+  
+  p {
+    margin: 5px 0;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  /* Customize Doughnut chart size */
+  .chart-container canvas {
+    max-width: 100%;
+    height: auto;
+  }
+  

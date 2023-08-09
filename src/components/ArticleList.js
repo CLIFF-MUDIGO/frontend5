@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
+import BookmarkedArticles from './BookmarkedArticles'; // Import the BookmarkedArticles component
+import SearchComponent from './SearchComponent'; // Import the SearchComponent component
 import "./ArticleList.css";
 
 const ArticleList = () => {
@@ -10,7 +12,7 @@ const ArticleList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const [userPreferences, setUserPreferences] = useState(null);
-  const [filteredArticles, setFilteredArticles] = useState([]); // New state to hold filtered articles
+  const [filteredArticles, setFilteredArticles] = useState([]);
 
   const fetchArticles = async () => {
     try {
@@ -62,22 +64,18 @@ const ArticleList = () => {
     if (token) {
       fetchUserPreferences();
     } else {
-      setUserPreferences(null); // Reset user preferences if the user is not logged in
+      setUserPreferences(null);
     }
   }, [token]);
 
   useEffect(() => {
-    // Apply user preferences to the articles whenever the articles or userPreferences change
     if (articles.length > 0 && userPreferences) {
       const filteredArticles = applyUserPreferences();
-      setFilteredArticles(filteredArticles); // Use a separate state to hold the filtered articles
+      setFilteredArticles(filteredArticles);
     } else {
-      // If no user preferences, show all articles
       setFilteredArticles(articles);
     }
   }, [articles, userPreferences]);
-
-  
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -90,6 +88,7 @@ const ArticleList = () => {
   return (
     <div>
       <h1>News Articles</h1>
+      <SearchComponent onSearch={(searchQuery) => console.log(searchQuery)} onFilter={(filterOption) => console.log(filterOption)} />
       {filteredArticles.map((article) => (
         <div key={article.id}>
           <img src={article.image_url} alt={article.headline} />
@@ -98,12 +97,10 @@ const ArticleList = () => {
           </h2>
           <p>{article.summary}</p>
           <p>{article.sentiment}</p>
-
-          {/* Add the BookmarkButton component here */}
-
-          
         </div>
       ))}
+      {/* Replace the BookmarkButton component with the BookmarkedArticles component */}
+      <BookmarkedArticles />
     </div>
   );
 };

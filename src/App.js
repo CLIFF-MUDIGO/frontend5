@@ -10,6 +10,8 @@ import { AuthProvider, useAuth } from './components/AuthContext'; // Import the 
 import "./App.css";
 import UserPreferences from './components/UserPreferences';
 import BookmarkedArticles from './components/BookmarkedArticles';
+import SearchComponent from './components/SearchComponent';
+
 
 
 const Navbar = () => {

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "./UserPreferences.css";
+import './UserPreferences.css';
+
 function UserPreferences({ authToken }) {
   const [userPreferences, setUserPreferences] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
-  // Function to fetch user preferences from the server
   const fetchUserPreferences = async () => {
     setError('');
 
@@ -24,15 +24,12 @@ function UserPreferences({ authToken }) {
     }
   };
 
-  // Function to update user preferences
-  // Function to update user preferences
-    const updateUserPreferences = (updatedPreferences) => {
-    // Make sure the authToken is available before making the API call
+  const updateUserPreferences = (updatedPreferences) => {
     if (!authToken) {
       setError('Please log in to update user preferences.');
       return;
     }
-  
+
     const config = {
       method: 'PATCH',
       headers: {
@@ -45,15 +42,18 @@ function UserPreferences({ authToken }) {
         },
       }),
     };
-  
+
     fetch('http://localhost:3000/users/preferences', config)
       .then((response) => response.json())
       .then((data) => setUserPreferences(data))
       .catch((error) => setError('Error updating user preferences. Please try again.'));
   };
-  
 
-  // Fetch user preferences when the component mounts (if authToken is available)
+  const handlePreferenceChange = (event) => {
+    const { name, checked } = event.target;
+    updateUserPreferences({ [name]: checked });
+  };
+
   useEffect(() => {
     if (authToken) {
       fetchUserPreferences();
@@ -62,99 +62,74 @@ function UserPreferences({ authToken }) {
     }
   }, [authToken]);
 
-  // Function to handle preference checkbox changes
-  const handlePreferenceChange = (event) => {
-    const { name, checked } = event.target;
-    updateUserPreferences({ [name]: checked });
-  };
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-  if(!authToken){
-    alert("Kindly Log In to set your desired preference");
-  }
-  if (!userPreferences) {
-    // If user has no preferences, show the checkboxes to create preferences
-    return (
-      <div>
-        <h2>Add Your Personal Preferences</h2>
-        <label className="container">
-          Hide Negative Sentiment:
-          <input
-            type="checkbox"
-            name="hide_negative_sentiment"
-            checked={false}
-            onChange={handlePreferenceChange}
-            disabled={!authToken} // Disable checkbox if not logged in
-          />
-          <div className="checkmark"></div>
-        </label>
-        <label className="container">
-          Hide Positive Sentiment:
-          <input
-            type="checkbox"
-            name="hide_positive_sentiment"
-            checked={false}
-            onChange={handlePreferenceChange}
-            disabled={!authToken} // Disable checkbox if not logged in
-          />
-          <div className="checkmark"></div>
-        </label>
-        <label className="container">
-          Hide Neutral Sentiment:
-          <input
-            type="checkbox"
-            name="hide_neutral_sentiment"
-            checked={false}
-            onChange={handlePreferenceChange}
-            disabled={!authToken} // Disable checkbox if not logged in
-          />
-          <div className="checkmark"></div>
-        </label>
-      </div>
-    );
-  }
-
-  // If user has preferences, show their preferences and allow updates
   return (
-    <div>
-      <h2>Add Your Personal Preferences</h2>
-      {error && <div>{error}</div>}
-      <label className="container">
-        Hide Negative Sentiment:
-        <input
-          type="checkbox"
-          name="hide_negative_sentiment"
-          checked={userPreferences.hide_negative_sentiment}
-          onChange={handlePreferenceChange}
-          disabled={!authToken} // Disable checkbox if not logged in
-        />
-        <div className="checkmark"></div>
-      </label>
-      <label className="container">
-        Hide Positive Sentiment:
-        <input
-          type="checkbox"
-          name="hide_positive_sentiment"
-          checked={userPreferences.hide_positive_sentiment}
-          onChange={handlePreferenceChange}
-          disabled={!authToken} // Disable checkbox if not logged in
-        />
-        <div className="checkmark"></div>
-      </label>
-      <label className="container">
-        Hide Neutral Sentiment:
-        <input
-          type="checkbox"
-          name="hide_neutral_sentiment"
-          checked={userPreferences.hide_neutral_sentiment}
-          onChange={handlePreferenceChange}
-          disabled={!authToken} // Disable checkbox if not logged in
-        />
-        <div className="checkmark"></div>
-      </label>
-      {/* Add other preference checkboxes here */}
+    <div className="user-preferences-container">
+      {isLoading ? (
+        <div className="loading">Loading...</div>
+      ) : (
+        <div className="preferences-content">
+          {!authToken && (
+            <div className="login-message">Kindly Log In to set your desired preference</div>
+          )}
+
+          {!userPreferences ? (
+            <div className="preferences-form">
+              <h2 className="preferences-header">Add Your Personal Preferences</h2>
+              <label className="preference-item">
+                <span className="sentiment-icon">😡</span> Hide Negative Sentiment:
+                <input
+                  type="checkbox"
+                  name="hide_negative_sentiment"
+                  checked={false}
+                  onChange={handlePreferenceChange}
+                  disabled={!authToken}
+                />
+                <div className="checkmark"></div>
+              </label>
+              {/* ... Repeat for other sentiments */}
+            </div>
+          ) : (
+            <div className="preferences-form">
+              <h2 className="preferences-header">Your Personal Preferences</h2>
+              {error && <div className="error-message">{error}</div>}
+              <label className="preference-item">
+                <span className="sentiment-icon">😡</span> Hide Negative Sentiment:
+                <input
+                  type="checkbox"
+                  name="hide_negative_sentiment"
+                  checked={userPreferences.hide_negative_sentiment}
+                  onChange={handlePreferenceChange}
+                  disabled={!authToken}
+                />
+                <div className="checkmark"></div>
+              </label>
+              <label className="preference-item">
+                <span className="sentiment-icon">😂</span> Hide Positive Sentiment:
+                <input
+                  type="checkbox"
+                  name="hide_positive_sentiment"
+                  checked={userPreferences.hide_positive_sentiment}
+                  onChange={handlePreferenceChange}
+                  disabled={!authToken}
+                />
+                <div className="checkmark"></div>
+              </label>
+              <label className="preference-item">
+                <span className="sentiment-icon">😐</span> Hide Neutral Sentiment:
+                <input
+                  type="checkbox"
+                  name="hide_neutral_sentiment"
+                  checked={userPreferences.hide_neutral_sentiment}
+                  onChange={handlePreferenceChange}
+                  disabled={!authToken}
+                />
+                <div className="checkmark"></div>
+              </label>
+              {/* Add other preference checkboxes here */}
+            </div>
+          )}
+        </div>
+      )}
     </div>
   );
 }

@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
+import BookmarkedArticles from './BookmarkedArticles'; // Import the BookmarkedArticles component
+import SearchComponent from './SearchComponent'; // Import the SearchComponent component
+import "./ArticleList.css";
+
 import './ArticleList.css';
+
 
 const ArticleList = () => {
   const { token } = useAuth();
@@ -86,6 +91,19 @@ const ArticleList = () => {
   return (
     <div className="center">
       <h1>News Articles</h1>
+      <SearchComponent onSearch={(searchQuery) => console.log(searchQuery)} onFilter={(filterOption) => console.log(filterOption)} />
+      {filteredArticles.map((article) => (
+        <div key={article.id}>
+          <img src={article.image_url} alt={article.headline} />
+          <h2>
+            <Link to={`/articles/${article.id}`}>{article.headline}</Link>
+          </h2>
+          <p>{article.summary}</p>
+          <p>{article.sentiment}</p>
+        </div>
+      ))}
+      {/* Replace the BookmarkButton component with the BookmarkedArticles component */}
+      <BookmarkedArticles />
       <div className="article-container-horizontal">
         {filteredArticles.map((article) => (
           <div key={article.id} className="article-horizontal">

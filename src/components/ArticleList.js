@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
-import "./ArticleList.css";
+import './ArticleList.css';
 
 const ArticleList = () => {
   const { token } = useAuth();
@@ -10,7 +10,7 @@ const ArticleList = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const [userPreferences, setUserPreferences] = useState(null);
-  const [filteredArticles, setFilteredArticles] = useState([]); // New state to hold filtered articles
+  const [filteredArticles, setFilteredArticles] = useState([]);
 
   const fetchArticles = async () => {
     try {
@@ -40,7 +40,7 @@ const ArticleList = () => {
 
   const applyUserPreferences = () => {
     if (!userPreferences) {
-      return articles; // No user preferences, return all articles as is
+      return articles;
     }
 
     return articles.filter((article) => {
@@ -62,48 +62,44 @@ const ArticleList = () => {
     if (token) {
       fetchUserPreferences();
     } else {
-      setUserPreferences(null); // Reset user preferences if the user is not logged in
+      setUserPreferences(null);
     }
   }, [token]);
 
   useEffect(() => {
-    // Apply user preferences to the articles whenever the articles or userPreferences change
     if (articles.length > 0 && userPreferences) {
       const filteredArticles = applyUserPreferences();
-      setFilteredArticles(filteredArticles); // Use a separate state to hold the filtered articles
+      setFilteredArticles(filteredArticles);
     } else {
-      // If no user preferences, show all articles
       setFilteredArticles(articles);
     }
   }, [articles, userPreferences]);
 
-  
-
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <div className="center">Loading...</div>;
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div className="center">{error}</div>;
   }
 
   return (
-    <div>
+    <div className="center">
       <h1>News Articles</h1>
-      {filteredArticles.map((article) => (
-        <div key={article.id}>
-          <img src={article.image_url} alt={article.headline} />
-          <h2>
-            <Link to={`/articles/${article.id}`}>{article.headline}</Link>
-          </h2>
-          <p>{article.summary}</p>
-          <p>{article.sentiment}</p>
-
-          {/* Add the BookmarkButton component here */}
-
-          
-        </div>
-      ))}
+      <div className="article-container-horizontal">
+        {filteredArticles.map((article) => (
+          <div key={article.id} className="article-horizontal">
+            <img src={article.image_url} alt={article.headline} />
+            <div className="article-content-horizontal">
+              <h2>
+                <Link to={`/articles/${article.id}`}>{article.headline}</Link>
+              </h2>
+              <p>{article.summary}</p>
+              <p>{article.sentiment}</p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

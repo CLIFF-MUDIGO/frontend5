@@ -2,12 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
-import BookmarkedArticles from './BookmarkedArticles'; // Import the BookmarkedArticles component
-import SearchComponent from './SearchComponent'; // Import the SearchComponent component
-import "./ArticleList.css";
-
+import BookmarkedArticles from './BookmarkedArticles';
+import SearchComponent from './SearchComponent';
 import './ArticleList.css';
-
 
 const ArticleList = () => {
   const { token } = useAuth();
@@ -62,6 +59,23 @@ const ArticleList = () => {
     });
   };
 
+  const handleSearch = (searchQuery) => {
+    const filteredArticles = applyUserPreferences().filter((article) =>
+      article.headline.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredArticles(filteredArticles);
+  };
+
+  const handleFilter = (filterOption) => {
+    const sortedArticles = [...filteredArticles];
+    if (filterOption === 'alphabetical') {
+      sortedArticles.sort((a, b) => a.headline.localeCompare(b.headline));
+    } else if (filterOption === 'date') {
+      sortedArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
+    }
+    setFilteredArticles(sortedArticles);
+  };
+
   useEffect(() => {
     fetchArticles();
     if (token) {
@@ -91,18 +105,21 @@ const ArticleList = () => {
   return (
     <div className="center">
       <h1>News Articles</h1>
-      <SearchComponent onSearch={(searchQuery) => console.log(searchQuery)} onFilter={(filterOption) => console.log(filterOption)} />
-      {filteredArticles.map((article) => (
-        <div key={article.id}>
-          <img src={article.image_url} alt={article.headline} />
-          <h2>
-            <Link to={`/articles/${article.id}`}>{article.headline}</Link>
-          </h2>
-          <p>{article.summary}</p>
-          <p>{article.sentiment}</p>
-        </div>
-      ))}
-      {/* Replace the BookmarkButton component with the BookmarkedArticles component */}
+      <SearchComponent onSearch={handleSearch} onFilter={handleFilter} />
+      {filteredArticles.length === 0 ? (
+        <div className="center">No articles match your search.</div>
+      ) : (
+        filteredArticles.map((article) => (
+          <div key={article.id}>
+            <img src={article.image_url} alt={article.headline} />
+            <h2>
+              <Link to={`/articles/${article.id}`}>{article.headline}</Link>
+            </h2>
+            <p>{article.summary}</p>
+            <p>{article.sentiment}</p>
+          </div>
+        ))
+      )}
       <BookmarkedArticles />
       <div className="article-container-horizontal">
         {filteredArticles.map((article) => (

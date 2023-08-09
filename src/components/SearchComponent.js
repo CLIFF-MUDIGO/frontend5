@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './SearchComponent.css';
 
 const SearchComponent = ({ onSearch, onFilter }) => {
   const [searchQuery, setSearchQuery] = useState('');

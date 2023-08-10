@@ -1,15 +1,16 @@
-// src/index.js (or wherever your root file is)
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import { AuthProvider } from './components/AuthContext';
 
-ReactDOM.render(
+const root = document.getElementById('root');
+const app = (
   <Router>
     <AuthProvider>
       <App />
     </AuthProvider>
-  </Router>,
-  document.getElementById('root')
+  </Router>
 );
+
+ReactDOM.createRoot(root).render(app);

@@ -1,70 +1,142 @@
-.hero-section  {
-  font-size: 30px;
-}
-.footer{
-  font-size: 30px;
-}
-.about-us-section  {
-  font-size: 30px;
-  border-radius:3px;
+@import url('https://fonts.googleapis.com/css?family=Rancho&effect=shadow-multiple');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&display=swap');
 
-}
-
+/* Spinner */
 .spinner {
-  width: 70.4px;
-  height: 70.4px;
-  --clr: rgb(247, 197, 159);
-  --clr-alpha: rgb(247, 197, 159,.1);
-  animation: spinner 1.6s infinite ease;
-  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
 }
 
-.spinner > div {
-  background-color: var(--clr-alpha);
-  height: 100%;
-  position: absolute;
-  width: 100%;
-  border: 3.5px solid var(--clr);
+.spinner div {
+  width: 20px;
+  height: 20px;
+  background-color: #61DAFB;
+  margin: 3px;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
 }
 
-.spinner div:nth-of-type(1) {
-  transform: translateZ(-35.2px) rotateY(180deg);
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
-.spinner div:nth-of-type(2) {
-  transform: rotateY(-270deg) translateX(50%);
-  transform-origin: top right;
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 80px 0;
 }
 
-.spinner div:nth-of-type(3) {
-  transform: rotateY(270deg) translateX(-50%);
-  transform-origin: center left;
+.hero-section h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #333;
+  font-family: "Rancho", sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.spinner div:nth-of-type(4) {
-  transform: rotateX(90deg) translateY(-50%);
-  transform-origin: top center;
+.hero-section p {
+  font-size: 18px;
+  color: #000000;
 }
 
-.spinner div:nth-of-type(5) {
-  transform: rotateX(-90deg) translateY(50%);
-  transform-origin: bottom center;
+/* Style for "Get Started" Button */
+.get-started-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  font-size: 18px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none; /* Remove the border */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
 }
 
-.spinner div:nth-of-type(6) {
-  transform: translateZ(35.2px);
+.get-started-btn:hover {
+  background-color: #0056B3;
 }
 
-@keyframes spinner {
-  0% {
-    transform: rotate(45deg) rotateX(-25deg) rotateY(25deg);
-  }
-
-  50% {
-    transform: rotate(45deg) rotateX(-385deg) rotateY(25deg);
-  }
-
-  100% {
-    transform: rotate(45deg) rotateX(-385deg) rotateY(385deg);
-  }
+/* About Us Section */
+.about-us-section {
+  padding: 60px 0;
+  background-color: #F9F9F9;
 }
+
+.about-us-section h2 {
+  font-family: 'Rancho', cursive;
+  font-size: 36px;
+  color: #333;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.about-us-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-us-content h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+.about-us-content p {
+  font-family: 'Bricolage Grotesque', sans-serif;
+  font-size: 16px;
+  color: #000000;
+  margin-bottom: 20px;
+}
+
+/* Trial Card Section */
+.trial-card-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 0;
+}
+
+.sentiment-chart {
+  font-family: 'Bricolage Grotesque', sans-serif; /* Apply the specified font */
+  flex: 1;
+  max-width: 50%;
+  padding: 0 30px;
+}
+
+/* Footer */
+.footer {
+  font-family: 'Tangerine', serif;
+  font-size: 48px;
+  text-shadow: 4px 4px 4px #aaa;
+  text-align: center;
+  padding: 20px 0;
+  background-color: #333;
+  color: white;
+}
+
+.footer p {
+  font-size: 16px;
+  margin: 0;
+}
+
+.social-media-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-icon {
+  font-size: 24px;
+  color: #333;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  color: #ff5733;
+}
+

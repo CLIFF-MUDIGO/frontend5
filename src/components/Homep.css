@@ -27,10 +27,19 @@
 .hero-section {
   text-align: center;
   padding: 80px 0;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 30px;
+  left: 30px;
 }
 
 .hero-section h1 {
-  font-size: 36px;
+  font-size: 40px;
   margin-bottom: 20px;
   color: #333;
   font-family: "Rancho", sans-serif;
@@ -38,7 +47,7 @@
 }
 
 .hero-section p {
-  font-size: 18px;
+  font-size: 30px;
   color: #000000;
 }
 
@@ -64,6 +73,16 @@
 .about-us-section {
   padding: 60px 0;
   background-color: #F9F9F9;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  padding: 40px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 30px;
+  left: 30px;
 }
 
 .about-us-section h2 {
@@ -73,21 +92,21 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-.about-us-content {
+.about-us-content  {
   max-width: 800px;
   margin: 0 auto;
   text-align: center;
 }
 
 .about-us-content h2 {
-  font-size: 28px;
+  font-size: 50px;
   margin-bottom: 20px;
   color: #000000;
 }
 
 .about-us-content p {
   font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 16px;
+  font-size: 25px;
   color: #000000;
   margin-bottom: 20px;
 }
@@ -96,7 +115,7 @@
 .trial-card-section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content:  center;
   padding: 60px 0;
 }
 
@@ -105,6 +124,8 @@
   flex: 1;
   max-width: 50%;
   padding: 0 30px;
+  justify-content: center;
+  display:flex;
 }
 
 /* Footer */

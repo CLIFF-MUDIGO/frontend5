@@ -5,7 +5,10 @@ body {
   margin: 0;
   padding: 0;
 }
-
+.sentiment-display{
+  font-size: 20px;
+  font-weight: 1000;
+}
 .center {
   display: flex;
   flex-direction: column;
@@ -48,10 +51,12 @@ body {
   font-size: 20px;
   margin: 10px;
 }
-
+.summary{
+  font-size: 20px;
+}
 /* Summary styling */
 .article-card p {
-  font-size: 14px;
+  font-size: 20px;
   color: white;
   margin: 0 10px 10px;
 }

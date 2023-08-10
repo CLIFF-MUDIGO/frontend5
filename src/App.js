@@ -23,12 +23,7 @@ const Navbar = () => {
       </header>
 
       <ul>
-        <li>
-          <Link to="/register">Register</Link>
-        </li>
-        <li>
-          <Link to="/login">Login</Link>
-        </li>
+        
         <li>
           <Link to="/articles">Articles</Link>
         </li>
@@ -37,6 +32,12 @@ const Navbar = () => {
         </li>
         <li>
           <Link to="/bookmarked">My Articles</Link>
+        </li>
+        <li>
+          <Link to="/login">Login</Link>
+        </li>
+        <li>
+          <Link to="/register">Register</Link>
         </li>
       </ul>
     </nav>

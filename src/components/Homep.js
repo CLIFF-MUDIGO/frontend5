@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import TrialCard from './TrialCard';
 import Slideshow from './Slideshow';
 
+
+
 const Homep = () => {
   return (
     <div className="homepage-container">
@@ -18,8 +20,7 @@ const Homep = () => {
         <div></div>
         <div></div>
         <div></div>
-        <div></div>
-        <div></div>
+        
       </div>
 
       {/* Hero Section */}
@@ -63,7 +64,8 @@ const Homep = () => {
       <section className="trial-card-section">
         <TrialCard />
       </section>
-
+       {/* Social Media Links */}
+      
       {/* Footer */}
       <footer className="footer">
         <p>&copy; {new Date().getFullYear()} Sentiment Analysis App. All rights reserved.</p>

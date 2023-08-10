@@ -3,6 +3,8 @@ import './Homep.css';
 import { Link } from 'react-router-dom';
 import TrialCard from './TrialCard';
 import Slideshow from './Slideshow';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 
 
@@ -64,8 +66,25 @@ const Homep = () => {
       <section className="trial-card-section">
         <TrialCard />
       </section>
-       {/* Social Media Links */}
+
       
+
+
+      {/* Social Media Icons */}
+      <div className="social-media-icons">
+        <a href="https://www.facebook.com/" className="social-icon">
+          <FontAwesomeIcon icon={faFacebook} />
+        </a>
+        <a href="https://twitter.com/home" className="social-icon">
+          <FontAwesomeIcon icon={faTwitter} />
+        </a>
+        <a href="https://www.instagram.com/el._smash/" className="social-icon">
+          <FontAwesomeIcon icon={faInstagram} />
+        </a>
+        
+      </div>
+
+
       {/* Footer */}
       <footer className="footer">
         <p>&copy; {new Date().getFullYear()} Sentiment Analysis App. All rights reserved.</p>

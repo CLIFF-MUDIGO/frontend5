@@ -1,14 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Chart from "chart.js/auto";
-import { PolarArea } from "react-chartjs-2";
+import { Doughnut } from "react-chartjs-2";
+import "./SentimentChart.css";
 
-const SentimentChart = () => {
+const SentimentChart = ({ result }) => {
   const [data, setData] = useState({
     negative: 0.212,
     neutral: 0.588,
     positive: 0.3,
     compound: -0.7906,
   });
+
+  useEffect(() => {
+    console.log(result.sentiment_score);
+    setData(result.sentiment_score);
+  }, [result]);
 
   const chartData = {
     labels: ["Negative", "Neutral", "Positive"],
@@ -22,15 +28,17 @@ const SentimentChart = () => {
   };
 
   return (
-    < PolarArea
-      data={chartData}
-      options={{
-        title: {
-          text: "Sentiment Analysis",
-          fontSize: 20,
-        },
-      }}
-    />
+    <div className="chart">
+    <Doughnut
+    data={chartData}
+  options={{
+    title: {
+      text: "Sentiment Analysis",
+      fontSize: 30,
+    },
+  }}
+/>
+</div>
   );
 };
 

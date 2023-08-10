@@ -116,7 +116,6 @@ const ArticleList = () => {
               <Link to={`/articles/${article.id}`}>{article.headline}</Link>
             </h2>
             <p>{article.summary}</p>
-            <p>{article.sentiment}</p>
           </div>
         ))
       )}

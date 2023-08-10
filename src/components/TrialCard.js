@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import SentimentChart from './SentimentChart';
-
 import "./TrialCard.css";
-function TrialCard() {
+
+const TrialCard = () => {
   const [url, setUrl] = useState('');
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -22,19 +22,20 @@ function TrialCard() {
       .then((response) => response.json())
       .then((data) => {
         setResult(data);
-        console.log(data)
+        setLoading(false);
       })
       .catch((error) => {
         console.error('Error analyzing sentiment:', error);
       })
-      .finally(() => {
-        setLoading(false); // Set loading back to false after response or error
-      });
+      console.log(result);
+
   };
 
   return (
     <div className="trial-card">
-      <div><SentimentChart/></div>
+      <div>
+        {result && <SentimentChart result={result}/>}
+      </div>
       <h2>Trial Card</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="url">Enter News Article URL:</label>

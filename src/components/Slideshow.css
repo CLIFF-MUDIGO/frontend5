@@ -1,0 +1,67 @@
+/* Slideshow Container */
+.slideshow-container {
+    width: 70%; /* Adjust the width as needed */
+    margin: auto;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Slide */
+  .each-slide {
+    position: relative;
+    text-align: center;
+    background-color: #f4f4f4;
+    padding: 20px 0; /* Adjust the padding as needed */
+  }
+  
+  .each-slide img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Slide Content */
+  .slide-content {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 10px; /* Adjust the padding as needed */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .slide-content h2 {
+    font-size: 20px; /* Adjust the font size as needed */
+    margin-bottom: 8px; /* Adjust the margin as needed */
+  }
+  
+  .slide-content p {
+    font-size: 14px; /* Adjust the font size as needed */
+    margin-bottom: 10px; /* Adjust the margin as needed */
+  }
+  
+  /* Read More Link */
+  .read-more-link {
+    display: inline-block;
+    padding: 6px 12px; /* Adjust the padding as needed */
+    font-size: 12px; /* Adjust the font size as needed */
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 3px; /* Adjust the border radius as needed */
+    transition: background-color 0.3s ease;
+  }
+  
+  .read-more-link:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Autoplay Indicator */
+  .autoplay-indicator {
+    position: absolute;
+    bottom: 8px; /* Adjust the position as needed */
+    right: 8px; /* Adjust the position as needed */
+    font-size: 12px; /* Adjust the font size as needed */
+    color: #ccc;
+  }
+  

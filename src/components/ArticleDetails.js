@@ -97,11 +97,11 @@ const ArticleDetails = () => {
   }
 
   return (
-    <div>
+    <div className='details'>
       <img src={article.image_url} alt={article.headline} />
       <h1>{article.headline}</h1>
-      <p>{article.content}</p>
-      <p>{article.sentiment}</p>
+      <p className="sentiment-content">{article.content}</p>
+      <p className='sentiment-display'>Main Sentiment : {article.sentiment}</p>
 
       <button className="button" onClick={handleBookmark}>
         {isBookmarked ? 'Remove Bookmark' : 'Bookmark'}

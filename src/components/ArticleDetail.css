@@ -3,11 +3,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 
 /* Basic reset */
-body, h1, h2, h3, p {
-  margin: 0;
-  padding: 0;
+
+.details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px; /* Add padding for spacing */
 }
 
+.details img {
+  max-width: 100%; /* Make sure the image doesn't exceed its container */
+  margin-bottom: 10px; /* Add some space below the image */
+}
+
+.details h1 {
+  font-size: 24px;
+  margin-bottom: 10px; /* Add space below the heading */
+}
+
+.sentiment-content {
+  font-size: 16px;
+  margin-bottom: 20px; /* Add space below the content */
+}
+
+.sentiment-display {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.sentiment-display{
+  font-size: 20px;
+  font-weight: 1000;
+}
+.sentiment-content{
+  font-size: 20px;
+
+}
 /* Body styles */
 body {
   font-family: 'Roboto', sans-serif;

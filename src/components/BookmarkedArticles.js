@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
 import { Link } from 'react-router-dom';
-
+import "./BookmarkedArticles.css"
 const BookmarkedArticles = () => {
   const { token } = useAuth();
   const [userArticles, setUserArticles] = useState([]);
@@ -31,18 +31,18 @@ const BookmarkedArticles = () => {
   }, [token]);
 
   return (
-    <div>
+    <div className='bookmarked'>
       <h1>Your Bookmarked Articles</h1>
       {userArticles.length > 0 ? (
         <div>
           {userArticles.map((article) => (
-            <div key={article.id}>
+            <div className='article' key={article.id}>
               <img src={article.image_url} alt={article.headline} />
               <h2>
                 <Link to={`/articles/${article.id}`}>{article.headline}</Link>
               </h2>
               <p>{article.summary}</p>
-              <p>{article.sentiment}</p>
+              <p>Overall Sentiment :  {article.sentiment}</p>
 
               {/* Add the BookmarkButton component here */}
             </div>

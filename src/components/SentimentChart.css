@@ -1,6 +1,9 @@
 .chart {
     width: 700px;
     height: 500px;
+    display: flex;
+    justify-content: center;
+
   }
   
   .chart  {

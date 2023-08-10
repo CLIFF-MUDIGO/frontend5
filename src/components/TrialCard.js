@@ -47,6 +47,9 @@ function TrialCard() {
           />
          <button type="submit" className='Button'>Analyze</button>  
         </form>
+        <div>
+        {result && <SentimentChart result={result}/>}
+        </div>
         {loading &&  <div className="hourglassBackground">
           <div className="hourglassContainer">
             <div className="hourglassCurves"></div>
@@ -73,9 +76,7 @@ function TrialCard() {
           </div>
         )}
       </div>
-      <div className="sentiment-chart">
-        <SentimentChart />
-      </div>
+      
     </div>
   );
 }

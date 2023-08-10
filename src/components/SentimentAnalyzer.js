@@ -59,11 +59,11 @@ const SentimentAnalyzer = ({ initialText }) => {
         className="input"
       />
       <button onClick={analyzeSentiment} className="button">
-        Analyze Sentiment
+        Show Analysis
       </button>
-      <button onClick={() => setText('')} className="button reset-button">
+      {/* <button onClick={() => setText('')} className="button reset-button">
         Reset
-      </button>
+      </button> */}
       {Object.keys(sentiments).length > 0 && (
         <div className="result-container">
           <p>

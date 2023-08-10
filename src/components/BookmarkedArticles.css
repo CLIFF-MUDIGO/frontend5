@@ -1,0 +1,48 @@
+.bookmarked {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px; /* Add padding for spacing */
+  }
+  
+  .bookmarked h1 {
+    font-size: 35px;
+    margin-bottom: 20px; /* Add space below the heading */
+  }
+  
+  .bookmarked img {
+    max-width: 100%; /* Make sure the image doesn't exceed its container */
+    margin-bottom: 10px; /* Add some space below the image */
+  }
+  
+  .bookmarked h2 {
+    font-size: 30px;
+    margin-bottom: 10px; /* Add space below the subheading */
+  }
+  
+  .bookmarked p {
+    font-size: 24px;
+    margin-bottom: 15px; /* Add space below the paragraphs */
+  }
+  
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  /* Style for the sentiment paragraph */
+  .bookmarked p:last-child {
+    font-weight: bold;
+    font-size: 22px;
+  }
+  
+  .bookmarked .article{
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }

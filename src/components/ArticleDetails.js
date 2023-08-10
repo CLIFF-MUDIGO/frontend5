@@ -106,7 +106,7 @@ const ArticleDetails = () => {
       <button className="button" onClick={handleBookmark}>
         {isBookmarked ? 'Remove Bookmark' : 'Bookmark'}
       </button>
-      <SentimentAnalyzer initialText={article.content} />
+      <SentimentAnalyzer initialText={article.content} score={article.sentiment_score} />
     </div>
   );
 };

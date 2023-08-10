@@ -6,6 +6,8 @@ import Slideshow from './Slideshow';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
+
+
 const Homep = () => {
   return (
     <div className="homepage-container">
@@ -20,8 +22,7 @@ const Homep = () => {
         <div></div>
         <div></div>
         <div></div>
-        <div></div>
-        <div></div>
+        
       </div>
 
       {/* Hero Section */}
@@ -66,6 +67,9 @@ const Homep = () => {
         <TrialCard />
       </section>
 
+      
+
+
       {/* Social Media Icons */}
       <div className="social-media-icons">
         <a href="https://www.facebook.com/" className="social-icon">
@@ -79,6 +83,7 @@ const Homep = () => {
         </a>
         
       </div>
+
 
       {/* Footer */}
       <footer className="footer">

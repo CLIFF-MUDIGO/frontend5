@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
-import BookmarkedArticles from './BookmarkedArticles';
 import SearchComponent from './SearchComponent';
 import './ArticleList.css';
 
@@ -106,21 +105,6 @@ const ArticleList = () => {
     <div className="center">
       <h1>News Articles</h1>
       <SearchComponent onSearch={handleSearch} onFilter={handleFilter} />
-      {filteredArticles.length === 0 ? (
-        <div className="center">No articles match your search.</div>
-      ) : (
-        filteredArticles.map((article) => (
-          <div key={article.id}>
-            <img src={article.image_url} alt={article.headline} />
-            <h2>
-              <Link to={`/articles/${article.id}`}>{article.headline}</Link>
-            </h2>
-            <p>{article.summary}</p>
-            <p>{article.sentiment}</p>
-          </div>
-        ))
-      )}
-      <BookmarkedArticles />
       <div className="article-container-horizontal">
         {filteredArticles.map((article) => (
           <div key={article.id} className="article-horizontal">

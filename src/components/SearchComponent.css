@@ -1,67 +1,67 @@
 /* search-component.css */
 
 .search-component {
-    background-color: #f5f5f5;
-    border: 1px solid #ccc;
-    padding: 20px;
-    margin: 20px;
-    border-radius: 10px;
-    position: absolute;
-    top: 120px; /* Adjust the top position as needed */
-    right: 20px;
-  }
-  
-  .search-bar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 10px;
-  }
-  
-  .search-bar input[type="text"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    flex: 1;
-    margin-right: 10px;
-  }
-  
-  .search-bar button {
-    background-color: #1b774e; /* Darker green color */
-    color: #fff;
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Adding transition effect */
-  }
-  
-  .search-bar button:hover {
-    background-color: #156d43; /* Darker green color on hover */
-  }
-  
-  .filter-options {
-    display: flex;
-    align-items: center;
-  }
-  
-  .filter-options label {
-    margin-right: 10px;
-    font-weight: bold;
-  }
-  
-  .filter-options select {
-    padding: 6px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  /* Styling for option colors in select dropdown */
-  .filter-options select option[value="date"] {
-    color: #333;
-  }
-  
-  .filter-options select option[value="alphabetical"] {
-    color: #ff6347;
-  }
-  
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 10px;
+  position: absolute;
+  top: 120px; /* Adjust the top position as needed */
+  right: -30px; /* Adjust the right position to move it to the right */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.search-bar input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1;
+  margin-right: 10px;
+}
+
+.search-bar button {
+  background-color: #1b774e; /* Darker green color */
+  color: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Adding transition effect */
+}
+
+.search-bar button:hover {
+  background-color: #156d43; /* Darker green color on hover */
+}
+
+.filter-options {
+  display: flex;
+  align-items: center;
+  margin-top: 10px; /* Add margin to separate from the search bar */
+}
+
+.filter-options label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.filter-options select {
+  padding: 6px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* Styling for option colors in select dropdown */
+.filter-options select option[value="date"] {
+  color: #333;
+}
+
+.filter-options select option[value="alphabetical"] {
+  color: #ff6347;
+}

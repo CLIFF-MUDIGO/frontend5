@@ -102,13 +102,14 @@ a:hover {
 .article-container-horizontal {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center; /* Center horizontally */
+  margin-top: 20px;
 }
 
 /* Styling for each horizontal article */
 .article-horizontal {
   width: calc(33.33% - 20px);
-  margin-bottom: 20px;
+  margin: 0 10px; /* Adjust margins for spacing */
   padding: 5px;
   border: 1px solid #ddd;
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
@@ -124,3 +125,6 @@ a:hover {
 .article-content-horizontal {
   flex: 1;
 }
+
+/* ... remaining styles ... */
+

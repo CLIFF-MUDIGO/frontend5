@@ -29,14 +29,30 @@ const Slideshow = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: true,          // Enable autoplay
-    autoplaySpeed: 5000,     // Set the autoplay interval (in milliseconds)
+    autoplay: true,         
+    autoplaySpeed: 5000,     
   };
+
+
+  useEffect(() => {
+    const apiUrl = 'https://coronavirus-smartable.p.rapidapi.com/news/v1/US/';
+
+    fetch(apiUrl, {
+      method: 'GET',
+      headers: {
+        'X-RapidAPI-Host': 'coronavirus-smartable.p.rapidapi.com',
+        'X-RapidAPI-Key': '4990ecd6bbmsh93f9758a2e3467ap104e5cjsn1ac3e5b48e93',
+      },
+    })
+      .then(response => response.json())
+      .then(data => setNewsData(data.news))
+      .catch(error => console.error('Error fetching data:', error));
+  }, []);
 
   return (
     <div className="slideshow-container">
       <Slider {...settings}>
-        {newsData.length > 0 && // Check if newsData is not empty
+        {newsData && newsData.length > 0 && // Check if newsData is not empty
           newsData.map((article, index) => (
             <div key={index} className="each-slide">
               {article.images && article.images.length > 0 && (

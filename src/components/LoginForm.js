@@ -7,7 +7,6 @@ import "./LoginForm.css"; // Assuming the CSS code is in a file named LoginForm.
 
 
 
-
 const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -23,16 +22,34 @@ const LoginForm = () => {
         // Login successful, handle the response (e.g., redirect to dashboard)
         console.log(response);
         setToken(response.data.token)
-        alert (`Logged in successfully as ${response.data.username}`);
+        const successMessage = (
+          <div className="alert alert-success alert-dismissible fade show" role="alert">
+            Logged in successfully as ${response.data.username}.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        );
+        setMessage(successMessage);
         navigate('/articles');
       } else {
         console.error('Login failed.');
       }
     } catch (error) {
       console.error('Login failed.', error);
-      alert ('You have entered a wrong username or password');
+      const errorMessage = (
+        <div className="alert alert-danger alert-dismissible fade show" role="alert">
+          You have entered a wrong username or password.
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      );
+      setMessage(errorMessage);
     }
   };
+
+  const [message, setMessage] = useState('');
 
   return (
     <form onSubmit={handleLogin} className="login-box">
@@ -55,6 +72,7 @@ const LoginForm = () => {
         <label>Password:</label>
       </div>
       <center><button type="submit">Login</button></center>
+      {message}
     </form>
   );
 };

@@ -29,8 +29,13 @@ const Slideshow = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+
     autoplay: true,
     autoplaySpeed: 5000,
+
+    autoplay: true,         
+    autoplaySpeed: 5000,     
+
   };
 
 
@@ -40,7 +45,11 @@ const Slideshow = () => {
     fetch(apiUrl, {
       method: 'GET',
       headers: {
+
         'X-RapidAPI-Host': 'http://coronavirus-smartable.p.rapidapi.com',
+
+        'X-RapidAPI-Host': 'coronavirus-smartable.p.rapidapi.com',
+
         'X-RapidAPI-Key': '4990ecd6bbmsh93f9758a2e3467ap104e5cjsn1ac3e5b48e93',
       },
     })

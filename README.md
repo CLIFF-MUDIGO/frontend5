@@ -3,11 +3,11 @@
 ### Fredrick Mwangi, Emmanuel Mukira, Cliff Mudigo, Kennedy Mbugua : 1 August 2023
 ****
 ## Project Description
-The News Aggregator and Sentiment Analysis Website is a web-based platform that allows users to stay informed about the latest news articles and gain insights into the sentiment expressed in these articles.
-
-The platform aggregates news articles from various reputable sources and performs sentiment analysis to provide users with a comprehensive overview of current events along with an understanding of public sentiment.
-******
-
+Welcome to our AI-powered web app, where cutting-edge technology meets the world of news analysis. At the heart of our platform lies the transformative power of Natural Language Processing (NLP), a groundbreaking field that enables us to delve into the intricate nuances of news articles like never before.
+With a commitment to harnessing the capabilities of AI, we have crafted a user-friendly interface that allows you to effortlessly navigate through news stories while our advanced NLP algorithms work tirelessly
+in the background.
+Our app's primary focus is on sentiment analysis, a pivotal aspect of news comprehension. By employing NLP,we decipher the emotions, opinions, and attitudes woven into the fabric of articles, shedding light on the
+underlying sentiment and providing you with a deeper understanding of the narratives shaping our world.
 ## SCREENSHOTS
 - link 1
 - link 2
@@ -43,7 +43,11 @@ Open a terminal or command prompt.
 Use cd command to navigate to your React project's directory.
 Install Dependencies:
 
-Run npm install to install project dependencies from package.json.
+Run "npm install" to install project dependencies from package.json.
+Run "npm install react-router-dom" to install react router
+Run "npm install react-slick slick-carousel"
+Run "npm install @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons" 
+Run "npm install @fortawesome/free-solid-svg-icons"
 Start Development Server:
 
 Run npm start to launch the development server.
@@ -76,13 +80,13 @@ Or you can access the web application directly via this [LINK.](link.com/)
 ## Technologies Used
 1. HTML
 2. MdBootstrap
-3. HTML
+3. React
 4. CSS
 5. JavaScript
 *****
 ## Contact Information
 * Email 
-emmanuel.mukira@student.moringaschool.com
+emmanuelgichigo@gmail.com
 fredrick.mwangi01@student.moringaschool.com
 victorireri44@gmail.com
 kennedy.mbugua@student.moringaschool.com

@@ -1,6 +1,6 @@
 # Sentiment Analysis News Site
 *****
-### Fredrick Mwangi, Emmanuel Mukira, Cliff Mudigo, Kennedy Mbugua : 1 August 2023
+### Fredrick Mwangi, Emmanuel Mukira, Cliff Mudigo, Kennedy Mbugua,Victor Ireri : 1 August 2023
 ****
 ## Project Description
 Welcome to our AI-powered web app, where cutting-edge technology meets the world of news analysis. At the heart of our platform lies the transformative power of Natural Language Processing (NLP), a groundbreaking field that enables us to delve into the intricate nuances of news articles like never before.
